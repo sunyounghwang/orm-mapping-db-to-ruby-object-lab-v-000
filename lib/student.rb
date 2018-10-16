@@ -5,7 +5,6 @@ class Student
     binding.pry
     student = new
     student.tap { @id, @name, @grade = row[0], row[1], row[2] }
-    student
   end
 
   def self.all
