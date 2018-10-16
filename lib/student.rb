@@ -3,7 +3,7 @@ class Student
 
   def self.new_from_db(row)
     student = new
-    id, name, grade = row[0], row[1], row[2]
+    student.tap { id, name, grade = row[0], row[1], row[2] }
   end
 
   def self.all
