@@ -39,6 +39,16 @@ class Student
     DB[:conn].execute(sql, grade).map { |row| new_from_db(row) }
   end
 
+  def self.students_below_12th_grade
+    sql = <<-SQL
+    SELECT *
+    FROM students
+    WHERE grade < ?
+    SQL
+
+    DB[:conn].execute(sql, 12).map { |row| new_from_db(row) }
+  end
+
   def self.find_by_name(name)
     sql = <<-SQL
     SELECT *
