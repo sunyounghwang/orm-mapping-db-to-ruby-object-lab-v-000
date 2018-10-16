@@ -3,6 +3,9 @@ class Student
 
   def self.new_from_db(row)
     student = self.new
+    student.tap {
+      student.id = row[0]
+    }
     binding.pry
   end
 
